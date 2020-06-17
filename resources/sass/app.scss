@@ -1,0 +1,26 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+html {
+    direction: rtl;
+}
+
+body {
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+    background-color: #fff;
+}
+
+.error {
+    color: $red;
+}
+
+.thumbnail {
+    width: 100%;
+}
