@@ -4,7 +4,7 @@
     <form wire:submit.prevent="createClip">
         <div class="form-group">
             <h4>اسم المقطع</h4>
-            <input type="text" wire:model="clipName" name="clipName" class="form-control text-center" id="clipName" placeholder="{{$title}}">
+            <input type="text" wire:model="clipName" name="clipName" class="form-control text-center" id="clipName" placeholder="الرجاء إدخال اسم للمقطع">
             @error('clipName') <span class="error">الرجاء إدخال اسم المقطع على أن لا يزيد عن 100 حرف</span> @enderror
         </div>
         <h5 class="mb-3">طول المقطع: {{(int)($duration/60)}} دقيقة و {{($duration%60)}} ثانية</h5>
@@ -27,6 +27,11 @@
     @if (session()->has('file'))
         <div class="alert alert-sucess mt-3">
             <a href="{{ session('file') }}" target="_blank" class="btn btn-primary">قم بتحميل المقطع</a>
+        </div>
+    @endif
+    @if (session()->has('error'))
+        <div class="alert alert-danger mt-3">
+            {{ session('error') }}
         </div>
     @endif
     @endif

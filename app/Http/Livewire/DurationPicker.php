@@ -24,6 +24,7 @@ class DurationPicker extends Component
         $this->title = $details['title'];
         $this->duration = $details['duration'];
         $this->thumbnail = $details['thumbnail'];
+        $this->clipName = $this->title;
     }
 
     public function createClip() {
@@ -35,16 +36,17 @@ class DurationPicker extends Component
             $start_minutes = (int)$this->minutes >= 10 ? $this->minutes : "0" . $this->minutes;
             $start_seconds = (int)$this->seconds >= 10 ? $this->seconds : "0" . $this->seconds;
             $start_time = "00:" . $start_minutes . ":" . $start_seconds;
-            $file_name = Str::replaceArray(' ', ['-'], $this->clipName) . "-" . time();
+            $file_name = "3tabdance-" . time();
             $command = "youtube-dl -x --audio-format mp3 -o \"". storage_path() . "/app/public/" . $file_name . ".%(ext)s\" --postprocessor-args \"-ss " . $start_time . " -t 00:00:28\" -f bestaudio " . $this->url;
             shell_exec($command);
             $file_name_audio = $this->get_file($file_name);
             if($file_name_audio == -1) throw new Exception();
             $command = "ffmpeg -i " . storage_path() . "/app/public/orignal.mp4" . " -i " . storage_path() . "/app/public/" . escapeshellarg($file_name_audio) . " -c:v copy -map 0:v:0 -map 1:a:0 " . storage_path() . "/app/public/" . escapeshellarg($file_name) . ".mp4";
             shell_exec($command);
+            Storage::disk('public')->delete($file_name_audio);
             session()->flash('file', Storage::url($file_name . ".mp4"));
         }catch(Exception $ex) {
-            dd($ex);
+            session()->flash('error', 'حدث خطأ أثناء إنشاء المقطع، الرجاء المحاولة مرة أخرى');
         }
     }
 
