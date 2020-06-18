@@ -24,3 +24,11 @@ body {
 .thumbnail {
     width: 100%;
 }
+
+a {
+    color: #8dffef;
+
+    &:hover, &:focus {
+        color: #caefe9;
+    }
+}

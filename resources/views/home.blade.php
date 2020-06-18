@@ -45,6 +45,13 @@
       </div>
       <!-- /.row -->
 
+    <div class="row justify-content-md-center">
+        <div class="col-md-8 col-offset-2 mb-5 text-center">
+            @livewire('clips')
+        </div>
+    </div>
+    <!-- /.row -->
+
   </div>
   <!-- /.container -->
 
