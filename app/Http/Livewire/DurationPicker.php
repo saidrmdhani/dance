@@ -45,12 +45,12 @@ class DurationPicker extends Component
             $command = "ffmpeg -i " . storage_path() . "/app/public/orignal.mp4" . " -i " . storage_path() . "/app/public/" . escapeshellarg($file_name_audio) . " -c:v copy -map 0:v:0 -map 1:a:0 " . storage_path() . "/app/public/" . escapeshellarg($file_name) . ".mp4";
             shell_exec($command);
             Storage::disk('public')->delete($file_name_audio);
-            Clip::create([
+            $clip = Clip::create([
                 'name' => $this->clipName,
                 'file' => $file_name . ".mp4"
             ]);
             $this->emit("clipCreated");
-            session()->flash('file', Storage::url($file_name . ".mp4"));
+            session()->flash('file', "/share/" . $clip->id);
         }catch(Exception $ex) {
             dd($ex);
             session()->flash('error', 'حدث خطأ أثناء إنشاء المقطع، الرجاء المحاولة مرة أخرى');

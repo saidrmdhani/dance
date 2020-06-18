@@ -44,9 +44,9 @@ class ClipController extends Controller
      * @param  \App\Clip  $clip
      * @return \Illuminate\Http\Response
      */
-    public function show(Clip $clip)
+    public function show(Clip $clip, $id)
     {
-        //
+        return view('share', ['clip' => $clip->findOrFail($id)]);
     }
 
     /**

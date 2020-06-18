@@ -11,8 +11,8 @@
         <tbody>
             @foreach ($clips as $clip)
             <tr>
-                <td><a href="/storage/{{$clip->file}}" target="_blank">{{$clip->name}}</a></td>
-                <td><a href="https://twitter.com/intent/tweet?text={{$clip->name}}&#10;&amp;url=https://3tabdance.com/storage/{{$clip->file}}&amp;via=teahill_oman&amp;hashtags=عتاب_ترقص" class="social-button btn btn-primary" target="_blank"><span class="fab fa-twitter"></span></a></td>
+                <td><a href="/share/{{$clip->id}}" target="_blank">{{$clip->name}}</a></td>
+                <td><a href="https://twitter.com/intent/tweet?text={{$clip->name}}&#10;&amp;url=https://3tabdance.com/share/{{$clip->id}}&amp;via=teahill_oman&amp;hashtags=عتاب_ترقص" class="social-button btn btn-primary" target="_blank"><span class="fab fa-twitter"></span></a></td>
                 <td>{{$clip->created_at->diffForHumans()}}</td>
             </tr>
             @endforeach
