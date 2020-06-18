@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@teahill_oman" />
+    <meta name="twitter:title" content="ارقص مع عتاب" />
+    <meta name="twitter:description" content="أضف مقطعك الصوتي المفضل إلى رقصة عتاب" />
+    <meta name="twitter:image" content="{{request()->getSchemeAndHttpHost()}}/img/dance.jpg" />
+    <meta name="og:title" content="ارقص مع عتاب" />
+    <meta name="og:description" content="أضف مقطعك الصوتي المفضل إلى رقصة عتاب" />
+    <meta name="og:image" content="{{request()->getSchemeAndHttpHost()}}/img/dance.jpg" />
     <title>رقصة عتاب</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
