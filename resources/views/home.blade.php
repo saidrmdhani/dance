@@ -51,7 +51,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">الحقوق محفوظة &copy; رقصة عتاب</p>
+      <p class="m-0 text-center text-white">الحقوق محفوظة &copy; <a href="https://twitter.com/teahill_oman" target="_blank" class="copy-rights">رابية الشاي</a></p>
     </div>
     <!-- /.container -->
   </footer>
