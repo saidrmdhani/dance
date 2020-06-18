@@ -19,14 +19,14 @@
                 <input type="number" min="0" wire:model="seconds" class="form-control text-center" name="seconds" id="seconds" placeholder="0" value="0">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">إنشاء المقطع</button>
+        <button type="submit" class="btn btn-primary">إنشاء المقطع <span class="fas fa-bong"></span></button>
     </form>
     <div wire:loading>
         <img src="{{ asset('img/loading.gif') }}" width="32" height="32">
     </div>
     @if (session()->has('file'))
         <div class="alert mt-3">
-            <a href="{{ session('file') }}" target="_blank" class="btn btn-primary">قم بتحميل المقطع</a>
+            <a href="{{ session('file') }}" target="_blank" class="btn btn-primary">قم بتحميل المقطع <span class="fas fa-download"></span></a>
             <a href="https://twitter.com/intent/tweet?text={{$clipName}}&#10;&amp;url=https://3tabdance.com{{ session('file') }}&amp;via=teahill_oman&amp;hashtags=عتاب_ترقص" class="social-button btn btn-primary" target="_blank"><span class="fab fa-twitter"></span> شاركها</a>
         </div>
     @endif

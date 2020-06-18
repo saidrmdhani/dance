@@ -45,8 +45,8 @@
             <source src="/storage/{{$clip->file}}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <a href="/download/{{$clip->file}}" class="btn btn-primary mt-5">حمل المقطع</a>
-          <a href="/" class="btn btn-primary mt-5">أعمل مقطعك الخاص الآن</a>
+          <a href="/download/{{$clip->file}}" class="btn btn-primary mt-5">حمل المقطع <span class="fas fa-download"></span></a>
+          <a href="/" class="btn btn-primary mt-5">أعمل مقطعك الخاص الآن <span class="fas fa-bong"></span></a>
       </div>
     </div>
 
