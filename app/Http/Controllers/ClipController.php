@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Clip;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,8 @@ class ClipController extends Controller
      */
     public function show(Clip $clip, $id)
     {
-        return view('share', ['clip' => $clip->findOrFail($id)]);
+        $data = session('access_token', '') ? session('access_token') : $this->get_authorize_url();
+        return view('share', ['clip' => $clip->findOrFail($id), 'data' => $data]);
     }
 
     /**
@@ -81,5 +83,17 @@ class ClipController extends Controller
     public function destroy(Clip $clip)
     {
         //
+    }
+
+    private function get_authorize_url() {
+        $connection = new TwitterOAuth(config('twitter.consumer_key'), config('twitter.consumer_secret'));
+        $request_token = $connection->oauth('oauth/request_token', ['oauth_callback' => config('twitter.oauth_callback')]);
+        session([
+            'oauth_token' => $request_token['oauth_token'],
+            'oauth_token_secret' => $request_token['oauth_token_secret']
+        ]);
+        return $connection->url('oauth/authorize', [
+            'oauth_token' => $request_token['oauth_token']
+        ]);
     }
 }

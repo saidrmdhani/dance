@@ -22,3 +22,5 @@ Route::get('/share/{id}', 'ClipController@show');
 Route::get('/download/{file}', function($file) {
     return Storage::disk('public')->download($file);
 });
+
+Route::get('/callback', 'TwitterCallback');
