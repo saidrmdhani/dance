@@ -26,8 +26,8 @@
     </div>
     @if (session()->has('file'))
         <div class="alert mt-3">
-            <a href="{{ session('file') }}" target="_blank" class="btn btn-primary">قم بتحميل المقطع <span class="fas fa-download"></span></a>
-            <a href="https://twitter.com/intent/tweet?text={{$clipName}}&#10;&amp;url=https://3tabdance.com{{ session('file') }}&amp;via=teahill_oman&amp;hashtags=عتاب_ترقص" class="social-button btn btn-primary" target="_blank"><span class="fab fa-twitter"></span> شاركها</a>
+            <a href="{{ session('file') }}" target="_blank" class="btn btn-primary">التنزيل والمشاركة <span class="fas fa-download"></span></a>
+            {{-- <a href="https://twitter.com/intent/tweet?text={{$clipName}}&#10;&amp;url=https://3tabdance.com{{ session('file') }}&amp;via=teahill_oman&amp;hashtags=عتاب_ترقص" class="social-button btn btn-primary" target="_blank"><span class="fab fa-twitter"></span> شاركها</a> --}}
         </div>
     @endif
     @if (session()->has('error'))
