@@ -47,6 +47,11 @@
           </video>
           <a href="/download/{{$clip->file}}" class="btn btn-primary mt-5">حمل المقطع <span class="fas fa-download"></span></a>
           <a href="/" class="btn btn-primary mt-5">أعمل مقطعك الخاص الآن <span class="fas fa-bong"></span></a>
+          @if (gettype($data) != 'string')
+          @livewire('twitter', ['access_token' => $data, 'clip' => $clip])
+          @else
+          <a href="{{$data}}" class="btn btn-primary mt-5">شارك في تويتر <span class="fab fa-twitter"></span></a>
+          @endif
       </div>
     </div>
 
